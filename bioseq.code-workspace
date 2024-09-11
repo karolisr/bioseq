@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+    ],
+    "settings": {
+        "emeraldwalk.runonsave": {
+            "autoClearConsole": true,
+            "commands": [
+                {
+                    "match": ".*\\.rs$",
+                    "cmd": "echo && cargo run --quiet --example ${fileBasenameNoExt} && echo"
+                }
+            ]
+        }
+    }
+}
