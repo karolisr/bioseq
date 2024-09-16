@@ -48,6 +48,15 @@ pub fn complement(nt: impl Into<String>) -> String {
     return String::from_utf8(complement_bytes(nt)).unwrap();
 }
 
+pub fn reverse(nt: impl Into<String>) -> String {
+    let nt: String = nt.into().to_ascii_uppercase();
+    nt.chars().rev().collect::<String>()
+}
+
+pub fn rev_comp(nt: impl Into<String>) -> String {
+    complement(reverse(nt))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -81,4 +90,15 @@ mod tests {
         assert_eq!(complement(&a), "TGCAAYRKMWSVHDBN-");
         dbg!(a);
     }
+
+    #[test]
+    fn t_reverse() {
+        assert_eq!(reverse("ACGTURYMKWSBDHVN-"), "-NVHDBSWKMYRUTGCA");
+    }
+
+    #[test]
+    fn t_rev_comp() {
+        assert_eq!(rev_comp("ACGTURYMKWSBDHVN-"), "-NBDHVSWMKRYAACGT");
+    }
+
 }
