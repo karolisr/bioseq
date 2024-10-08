@@ -6,7 +6,7 @@ authors = ["Karolis Ramanauskas"]
 license = "GNU General Public License v3.0"
 repository = "https://github.com/karolisr/bioseq"
 edition = "2021"
-rust-version = "1.76"
+rust-version = "1.81"
 
 [lib]
 name = "bioseq"
