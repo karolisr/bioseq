@@ -1,0 +1,29 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.rulers": [
+            100,
+        ],
+        "launch": {
+            "configurations": [],
+            "compounds": []
+        },
+        "rust-analyzer.completion.hideDeprecated": true,
+        "emeraldwalk.runonsave": {
+            "autoClearConsole": true,
+            "commands": [
+                {
+                    "match": ".*src-submodules/bioseq.*\\.rs$",
+                    "cmd": "echo && cd src-submodules/bioseq &>/dev/null || cd . && cargo run --quiet --example ${fileBasenameNoExt} && echo"
+                }
+            ]
+        }
+    },
+    "extensions": {
+        "recommendations": []
+    }
+}
