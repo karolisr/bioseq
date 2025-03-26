@@ -1,10 +1,7 @@
 use std::collections::HashMap;
 
 pub fn validate_gc_id(gc_id: usize) -> bool {
-    match gc_id {
-        1..=6 | 9..=16 | 21..=33 => true,
-        _ => false,
-    }
+    matches!(gc_id, 1..=6 | 9..=16 | 21..=33)
 }
 
 pub fn get_gen_code_name(gc_id: usize) -> String {
@@ -95,7 +92,7 @@ pub fn get_trans_table(gc_id: usize) -> HashMap<String, String> {
                 let aa = aas.get(i..=i).unwrap();
                 tt.insert(codon.to_string(), aa.to_string());
             }
-            return tt;
+            tt
         }
         false => todo!(),
     }
@@ -151,7 +148,7 @@ fn get_start_or_stop_codons(gc_id: usize, ch_match: char) -> Vec<String> {
                     continue;
                 }
             }
-            return start_codons;
+            start_codons
         }
         false => todo!(),
     }

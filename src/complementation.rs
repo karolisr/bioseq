@@ -35,9 +35,9 @@ pub fn complement_bytes(nt: impl Into<Vec<u8>>) -> Vec<u8> {
     let mut rv: Vec<u8> = Vec::new();
     let nt: Vec<u8> = nt.into();
     for s in nt {
-        rv.push(*compl.get(&s).unwrap_or(&('N' as u8)));
+        rv.push(*compl.get(&s).unwrap_or(&b'N'));
     }
-    return rv;
+    rv
 }
 
 /// Complements nucleotide (DNA/RNA) string.
@@ -45,7 +45,7 @@ pub fn complement_bytes(nt: impl Into<Vec<u8>>) -> Vec<u8> {
 /// Returns DNA string.
 pub fn complement(nt: impl Into<String>) -> String {
     let nt: String = nt.into().to_ascii_uppercase();
-    return String::from_utf8(complement_bytes(nt)).unwrap();
+    String::from_utf8(complement_bytes(nt)).unwrap()
 }
 
 pub fn reverse(nt: impl Into<String>) -> String {
@@ -100,5 +100,4 @@ mod tests {
     fn t_rev_comp() {
         assert_eq!(rev_comp("ACGTURYMKWSBDHVN-"), "-NBDHVSWMKRYAACGT");
     }
-
 }

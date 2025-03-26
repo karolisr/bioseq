@@ -19,7 +19,7 @@ pub fn translate(nt: impl Into<String>, gc_id: usize) -> String {
         aa += residue;
         i += 3;
     }
-    return aa;
+    aa
 }
 
 #[cfg(test)]
