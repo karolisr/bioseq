@@ -1,33 +1,37 @@
 [package]
-name = "bioseq"
-version = "0.0.1"
-description = "bioseq description in cargo.toml"
-authors = ["Karolis Ramanauskas"]
-license = "GNU General Public License v3.0"
-repository = "https://github.com/karolisr/bioseq"
-edition = "2021"
-rust-version = "1.81"
+    authors=["Karolis Ramanauskas"]
+    description="bioseq description in cargo.toml"
+    edition="2024"
+    license="GNU General Public License v3.0"
+    name="bioseq"
+    repository="https://github.com/karolisr/bioseq"
+    rust-version="1.88"
+    version="0.0.1"
 
 [lib]
-name = "bioseq"
-crate-type = ["lib"]
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+    crate-type=["lib"]
+    name="bioseq"
 
 [profile.dev]
-incremental = true # Compile your binary in smaller steps.
-codegen-units = 8  # Allows LLVM to perform better optimization. 1-256; 1=slow compile time; 256=faster compile time.
-lto = false        # Enables link-time-optimizations. Use false for faster compile time.
-opt-level = 3      # "s" prioritizes small binary size. Use 3 for faster compile time.
-panic = "abort"    # Higher performance by disabling panic handlers.
-strip = false      # Ensures debug symbols are removed.
+    codegen-units=6       # 256
+    debug=true            # true
+    debug-assertions=true # true
+    incremental=true      # true
+    lto=false             # false
+    opt-level=1           # 1
+    overflow-checks=true  # true
+    panic="abort"         # "unwind"
+    rpath=false           # false
+    strip=false           # false
 
 [profile.release]
-incremental = true # Compile your binary in smaller steps.
-codegen-units = 1  # Allows LLVM to perform better optimization. 1-256; 1=slow compile time; 256=faster compile time.
-lto = true         # Enables link-time-optimizations. Use false for faster compile time.
-opt-level = "s"    # "s" prioritizes small binary size. Use 3 for faster compile time.
-panic = "abort"    # Higher performance by disabling panic handlers.
-strip = true       # Ensures debug symbols are removed.
-
-[dependencies]
+    codegen-units=1        # 16
+    debug=false            # false
+    debug-assertions=false # false
+    incremental=false      # false
+    lto=true               # false
+    opt-level=3            # 3
+    overflow-checks=true   # false
+    panic="abort"          # "unwind"
+    rpath=false            # false
+    strip=true             # "none"
